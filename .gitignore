@@ -1,0 +1,49 @@
+# Archivos y directorios generados por el sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# Dependencias de Node
+/node_modules
+/.pnp
+.pnp.js
+
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Directorios de construcción
+/build
+/dist
+/out
+.next/
+
+# Configuraciones y caché
+.eslintcache
+*.tmp
+*.bak
+*.swp
+
+# Editor/IDE
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing
+/coverage
+/jest-report
+
+# Misceláneos
+package-lock.json
+yarn.lock
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

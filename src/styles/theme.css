@@ -1,0 +1,563 @@
+/* src/styles/theme.css */
+
+/* ESTILOS GENERALES */
+body {
+  background: linear-gradient(135deg, #c295f1, #b4b8f0);
+  background-attachment: fixed;
+  color: white;
+  min-height: 100vh;
+  padding: 50px 20px 0; 
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin: 0;
+  
+}
+
+/* NAVBAR PRINCIPAL */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(90deg, #a083c0, #a7bee7);
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+/* LOGO Y MARCA */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.9rem;
+  font-style: italic;
+  text-decoration: none;
+  padding-left: 90px;
+  flex-shrink: 0;
+}
+
+.navbar-logo {
+  height: 60px;
+  margin-right: 150px;
+  border-radius: 5px;
+}
+
+/* MENÚ DESKTOP */
+.desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 30px;
+  flex-grow: 1;
+}
+
+/* BOTONES DEL MENÚ */
+.nav-button {
+  background-color: #964ec7;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  min-width: 120px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-style: italic;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+.nav-button:hover {
+  background-color: #a75fd1;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-button.active {
+  background-color: #c2c0c4d5;
+  color: #333;
+  font-weight: bold;
+}
+
+/* BOTÓN CERRAR SESIÓN */
+.logout-button {
+  background-color: rgba(194, 192, 196, 0.84);
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-style: italic;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.logout-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* BOTÓN DE MENÚ HAMBURGUESA */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 10px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.menu-toggle:focus {
+  outline: none;
+}
+/* MENÚ MÓVIL */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, #a083c0, #a7bee7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+/* BOTONES DEL MENÚ MÓVIL */
+.mobile-nav-button, .mobile-logout-button {
+  width: 90%;
+  max-width: 300px;
+  margin: 8px 0;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-nav-button {
+  background-color: #c065eb;
+  color: white;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.mobile-nav-button:hover {
+  background-color: #a75fd1;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-logout-button {
+  background-color: rgba(194, 192, 196, 0.84);
+  color: #333;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-style: italic;
+  margin-top: 15px;
+}
+
+.mobile-logout-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 0 20px;
+    justify-content: space-between; /* Restauramos para móvil */
+  }
+  
+  .navbar-brand {
+    padding-left: 0; /* Eliminamos el padding en móvil */
+  }
+  
+  .desktop-menu {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  body {
+    padding-top: 80px;
+  }
+}
+
+@media (min-width: 993px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* CONTENEDORES PRINCIPALES */
+.main-content {
+  background: linear-gradient(135deg, rgba(199, 163, 238, 0.9), rgba(180, 184, 240, 0.9));
+  min-height: calc(100vh - 90px);
+  padding: 15px;
+}
+
+.container, .content-container {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 1200px;
+  width: calc(100% - 40px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* TARJETAS */
+.card {
+  background: rgba(227, 231, 238, 0.7);
+  border-radius: 12px;
+  border: none;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  color: #5a2d6e;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* TABLAS */
+.table-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 600px;
+  color: #583258;
+  background-color: #d299e4;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  background-color: #ae94e2;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+}
+
+.table tbody tr {
+  background-color: #dbbdec;
+  transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+  background-color: #d1a8e6;
+}
+
+.table tbody td {
+  padding: 10px 12px;
+  border: 1px solid #b8a1e7;
+}
+
+/* FORMULARIOS */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #5a2d6e;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(90, 45, 110, 0.3);
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #c065eb;
+  box-shadow: 0 0 0 0.25rem rgba(192, 101, 235, 0.25);
+  outline: none;
+}
+
+/* BOTONES */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-style: italic;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: #a261c0;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #8a4fa8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #e17055;
+  color: white;
+}
+
+/* ESPACIADO Y DISPOSICIÓN */
+.quantity-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.quantity-input-container input {
+  width: 70px;
+  padding: 8px;
+}
+
+.max-quantity {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  body {
+    padding: 80px 10px 0;
+  }
+  
+  .navbar {
+    padding: 0 15px;
+    justify-content: space-between;
+  }
+  
+  .navbar-brand {
+    padding-left: 0;
+  }
+  
+  .desktop-menu {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .container, .content-container {
+    width: calc(100% - 20px);
+    padding: 15px;
+  }
+}
+
+@media (min-width: 993px) {
+  .mobile-menu {
+    display: none !important;
+  }
+}
+
+/* ESTILOS ESPECÍFICOS PARA COMPONENTES */
+.sales-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sales-table th, 
+.sales-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sales-table th {
+  background-color: #a267f0;
+  color: white;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+}
+
+.status-badge.completada {
+  background-color: #00b894;
+}
+
+.status-badge.pendiente {
+  background-color: #fdcb6e;
+  color: #333;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+
+/* Estilos para el Login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c7a3ee, #b4b8f0);
+  padding: 20px;
+}
+
+.login-box {
+  background: rgba(236, 236, 236, 0.589);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+}
+
+.login-logo {
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.login-title {
+  color: #5a2d6e;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.form-label {
+  color: #5a2d6e;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(90, 45, 110, 0.3);
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #c065eb;
+  box-shadow: 0 0 0 0.25rem rgba(192, 101, 235, 0.25);
+}
+
+.forgot-password {
+  color: #5a2d6e;
+  text-decoration: none;
+  font-style: italic;
+  transition: all 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #c065eb;
+  text-decoration: underline;
+}
+
+.btn-login {
+  background-color: #c065eb !important;
+  border: none;
+  color: white !important;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login:hover {
+  background-color: #a75fd1 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-login:disabled {
+  background-color: #c2c0c4d5 !important;
+}
+
+.special-content {
+  margin-top: 30px;
+}
