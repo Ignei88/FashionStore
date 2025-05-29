@@ -23,7 +23,8 @@ function App() {
     return localStorage.getItem('isLoggedIn') === 'true';
   });
   const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
-  
+  const isAdmin = localStorage.getItem('admin') === 'true';
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 992);

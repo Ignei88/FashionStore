@@ -17,30 +17,52 @@ const Login = ({ setIsLoggedIn }) => {
     setIsLoading(true);
     setError('');
     
-    try {
-      const response = await fetch(`${apiUrl}/api/users/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-      if (!response.ok) {
-        throw new Error('Error en la autenticación');
-      }
-      localStorage.setItem('isLoggedIn', 'true');
-      setIsLoggedIn(true);
-    } catch (error) {
-      console.error('Error en la autenticación:', error);
-      setError('Error en la autenticación. Inténtalo de nuevo.');
-    }
+try {
+  const response = await fetch(`${apiUrl}/api/users/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ username, password }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Error en la autenticación');
+  }
+
+  const data = await response.json(); // Obtenemos el JSON
+  console.log('Datos del usuario:', data); // <- Muestra los datos completos en consola
+
+  // Guardar datos en localStorage
+  localStorage.setItem('isLoggedIn', 'true');
+  localStorage.setItem('token', data.token);
+  if (data.user.id_rol === 1) {
+    localStorage.setItem('admin', 'true');
+  }else{localStorage.setItem('admin', 'false');}
+
+
+  setIsLoggedIn(true);
+
+} catch (error) {
+  console.error('Error en la autenticación:', error);
+  setError('Error en la autenticación. Inténtalo de nuevo.');
+}
+
 
     // Simular autenticación
     setTimeout(() => {
-      if (username === 'prueba' && password === '1201') {
+      if (username === 'admin' && password === '1201') {
         setIsLoggedIn(true);
         localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('admin', true);
+        localStorage.setItem('admin', 'true');
+        navigate('/home');
+      } else {
+        setError('Credenciales incorrectas. Usa: prueba / 1201');
+      }
+      if (username === 'usuario' && password === '1201') {
+        setIsLoggedIn(true);
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('admin', 'false');
         navigate('/home');
       } else {
         setError('Credenciales incorrectas. Usa: prueba / 1201');
